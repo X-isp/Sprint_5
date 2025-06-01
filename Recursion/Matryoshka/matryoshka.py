@@ -16,6 +16,22 @@ class Matryoshka:
         self.inner_item = item
 
 
+def disassemble_matryoshka(matryoshka):
+    """Функция разборки матрёшки."""
+    # Получаем вложенную матрёшку.
+    inner_item = matryoshka.inner_item
+    # Если вложенной матрёшки нет, значит, это была самая маленькая матрёшка 
+    # и работа закончена.
+    if inner_item is None:
+        print(f'Все матрёшки разобраны! Размер последней матрёшки: {matryoshka.size}')
+        return
+    # Если вложенная матрёшка есть, печатаем информационное сообщение...
+    print(f'Разобрали матрёшку размера {matryoshka.size}, разбираем дальше!')
+    # ...и рекурсивно вызываем ту же функцию,
+    # но аргументом в неё передаём объект, вложенный в текущий:
+    disassemble_matryoshka(inner_item)
+
+
 if __name__ == '__main__':
     # 1 Вариант создания экземпляров класса Matryoshka:
 
@@ -31,14 +47,14 @@ if __name__ == '__main__':
     # 2 Вариант создания экземпляров класса Matryoshka:
     the_biggest_one = Matryoshka('L', Matryoshka('M', Matryoshka('S')))
 
-    # Размер большой матрёшки.
-    print(the_biggest_one.size)
+    # # Размер большой матрёшки.
+    # print(the_biggest_one.size)
+    # # Размер матрёшки, вложенной в большую.
+    # print(the_biggest_one.inner_item.size)
+    # # Размер матрёшки, вложенной во вложенную в большую.
+    # print(the_biggest_one.inner_item.inner_item.size)
+    # # Содержимое наименьшей матрёшки.
+    # print(the_biggest_one.inner_item.inner_item.inner_item)
 
-    # Размер матрёшки, вложенной в большую.
-    print(the_biggest_one.inner_item.size)
-
-    # Размер матрёшки, вложенной во вложенную в большую.
-    print(the_biggest_one.inner_item.inner_item.size)
-
-    # Содержимое наименьшей матрёшки.
-    print(the_biggest_one.inner_item.inner_item.inner_item)
+    # Передаём эту матрёшку на разборку.
+    disassemble_matryoshka(the_biggest_one)
