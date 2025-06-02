@@ -48,13 +48,13 @@ if __name__ == '__main__':
     the_biggest_one = Matryoshka('L', Matryoshka('M', Matryoshka('S')))
 
     # # Размер большой матрёшки.
-    # print(the_biggest_one.size)
-    # # Размер матрёшки, вложенной в большую.
-    # print(the_biggest_one.inner_item.size)
-    # # Размер матрёшки, вложенной во вложенную в большую.
-    # print(the_biggest_one.inner_item.inner_item.size)
-    # # Содержимое наименьшей матрёшки.
-    # print(the_biggest_one.inner_item.inner_item.inner_item)
+    print(the_biggest_one.size)
+    # Размер матрёшки, вложенной в большую.
+    print(the_biggest_one.inner_item.size)
+    # Размер матрёшки, вложенной во вложенную в большую.
+    print(the_biggest_one.inner_item.inner_item.size)
+    # Содержимое наименьшей матрёшки.
+    print(the_biggest_one.inner_item.inner_item.inner_item)
 
     # Передаём эту матрёшку на разборку.
     disassemble_matryoshka(the_biggest_one)
